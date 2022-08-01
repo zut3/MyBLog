@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container header__container">
+                <div class="header__wrapper">
+                    <div class="header__icon icon"></div>
+                    <nav class="nav header__nav">
+                        <div class="nav__items">
+                            <a class="nav__item link" href="#">Author</a>
+                            <a class="nav__item link" href="#">Blog</a>
+                            <a class="nav__item link" href="#">Account</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </div>
+    <main class="main">
+        {% block main %}{% endblock %}
+    </main>
+    <footer class="footer">
+            <div class="container">
+                <div class="footer__socials">
+                    <div class="footer__social"><img alt="" src="{% static 'img/github.png' %}"
+                                                     width="45" height="45"></div>
+                </div>
+                <div class="footer__copyright">Copyright ©2022 All rights reserved </div>
+            </div>
+    </footer>
+</body>
+</html>

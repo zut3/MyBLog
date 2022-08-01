@@ -1,0 +1,5 @@
+# Routes
+
+## blog
+
++ "/" - home page 

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+<section class="section section__author">
+    <div class="container author">
+        <div class="author__wrapper">
+            <div class="author__image"><img src="{% static 'img/author.jpg' %}" alt=""></div>
+            <div class="author__content">
+                <div class="author__title">Hi, i'am Gleb and this's my blog</div>
+                <div class="author__subtitle">I'am programmer student. Learning Computer Science, Web and more.</div>
+                <button class="author__subscribe">Subscribe to blog</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section posts">
+    <div class="container">
+        <div class="posts__list">
+            {% for post in posts %}
+                <div class="posts__item post">
+                    <div class="row post__row">
+                        <div class="post__title">{{ post.title }}</div>
+                        <div class="post__date">{{ post.created }}</div>
+                    </div>
+                    {% if post.subtitle %}
+                        <div class="post__subtitle">{{ post.subtitle }}</div>
+                    {% endif %}
+                    <a class="post__link link" href="#">Read more</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
