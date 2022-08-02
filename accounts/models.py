@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
@@ -39,3 +40,8 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+
+class Token(models.Model):
+    email = models.EmailField(primary_key=True)
+    uid = models.CharField(max_length=40, default=uuid.uuid4)

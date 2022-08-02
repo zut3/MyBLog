@@ -1,18 +1,17 @@
 from django.contrib.auth.backends import BaseBackend
-from .models import User
+from .models import User, Token
 
 
 class Backend(BaseBackend):
 
-    def authenticate(self, request, email=None):
-        if email is None:
-            raise ValueError("email")
-
+    def authenticate(self, request, uid=None):
         try:
-            user = User.objects.get(email=email)
-            return user
+            token = Token.objects.get(uid=uid)
+            return User.objects.get(email=token.email)
         except User.DoesNotExist:
-            return User.objects.create(email=email)
+            return User.objects.create(email=token.email)
+        except Token.DoesNotExist:
+            return None
 
     def get_user(self, user_id):
         try:
