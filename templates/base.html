@@ -8,6 +8,19 @@
 </head>
 <body>
     <div class="wrapper">
+        <div class="modal" id="modal">
+            <div class="modal__inner">
+                <a class="modal__close" id="modal-close" href="#">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </a>
+                <form class="modal__form form" method="post">
+                    <input type="email" placeholder="Email" class="input form__email">
+                    <p class="form__label">Your should confirm your email.</p>
+                    <button type="submit" class="form__submit-btn">Send conirmation mail</button>
+                </form>
+            </div>
+        </div>
         <header class="header">
             <div class="container header__container">
                 <div class="header__wrapper">
@@ -16,7 +29,7 @@
                         <div class="nav__items">
                             <a class="nav__item link" href="#">Author</a>
                             <a class="nav__item link" href="#">Blog</a>
-                            <a class="nav__item link" href="#">Account</a>
+                            <a class="nav__item link" href="#modal">Account</a>
                         </div>
                     </nav>
                 </div>
