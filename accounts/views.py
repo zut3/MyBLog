@@ -25,4 +25,5 @@ def confirm(request, uid: str):
 def test(request):
     return HttpResponse(request.user.is_authenticated)
 
-
+def user_page(request):
+    return render(request, 'auth/user.html')
