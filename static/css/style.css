@@ -320,6 +320,13 @@ html {
   width: 100%;
 }
 
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -328,6 +335,14 @@ html {
 .container {
   max-width: 1120px;
   margin: 0 auto;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .section {
@@ -358,8 +373,12 @@ html {
   margin: 50px 0 50px 0;
 }
 
+.main {
+  flex: 1 0 100%;
+}
+
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -470,6 +489,7 @@ html {
 }
 
 .footer {
+  width: 100%;
   background-color: #EAF7FF;
   padding: 35px 0 20px 0;
   display: flex;

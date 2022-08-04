@@ -10,6 +10,13 @@ $secondary-color: #9EE800;
 // common
 
 
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -18,6 +25,14 @@ $secondary-color: #9EE800;
 .container {
     max-width: 1120px;
     margin: 0 auto;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .section {
@@ -50,10 +65,13 @@ $secondary-color: #9EE800;
     margin: 50px 0 50px 0;
 }
 
+.main {
+    flex: 1 0 100%;
+}
 // header
 
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -196,6 +214,7 @@ $secondary-color: #9EE800;
 //footer 
 
 .footer {
+    width: 100%;
     background-color: #EAF7FF;
     padding: 35px 0 20px 0;
     display: flex;

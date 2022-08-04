@@ -14,8 +14,9 @@
                     <div class="line"></div>
                     <div class="line"></div>
                 </a>
-                <form class="modal__form form" method="post">
-                    <input type="email" placeholder="Email" class="input form__email">
+		<form class="modal__form form" method="post" 
+			action={% url 'register' %}>
+                    <input type="email" name="email" placeholder="Email" class="input form__email">
                     <p class="form__label">Your should confirm your email.</p>
                     <button type="submit" class="form__submit-btn">Send conirmation mail</button>
                 </form>
@@ -29,24 +30,32 @@
                         <div class="nav__items">
                             <a class="nav__item link" href="#">Author</a>
                             <a class="nav__item link" href="#">Blog</a>
-                            <a class="nav__item link" href="#modal">Account</a>
+			    <a class="nav__item link" 
+			       href="
+				     {% if user.is_authenticated %}
+				     /auth/user
+				     {% else %}
+				     #modal
+				     {% endif %}
+			       ">Account
+			    </a>
                         </div>
                     </nav>
                 </div>
             </div>
         </header>
-    </div>
-    <main class="main">
-        {% block main %}{% endblock %}
-    </main>
-    <footer class="footer">
+        <main class="main">
+            {% block main %}{% endblock %}
+        </main>
+        <footer class="footer">
             <div class="container">
                 <div class="footer__socials">
                     <div class="footer__social"><img alt="" src="{% static 'img/github.png' %}"
-                                                     width="45" height="45"></div>
+                        width="45" height="45"></div>
+                    </div>
+                    <div class="footer__copyright">Copyright ©2022 All rights reserved </div>
                 </div>
-                <div class="footer__copyright">Copyright ©2022 All rights reserved </div>
-            </div>
-    </footer>
-</body>
+            </footer>
+        </div>
+    </body>
 </html>
