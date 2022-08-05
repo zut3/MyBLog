@@ -1,19 +1,15 @@
-from django.shortcuts import render, reverse
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, reverse, redirect
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from .models import Token
-from django.views.decorators.csrf import csrf_exempt
 
 
-@csrf_exempt
 def register(request):
     if request.method == 'POST':
-        print(request.POST)
         email = request.POST['email']
-        print(email)
         token = Token.objects.get_or_create(email=email)[0]
         url = reverse('confirm', kwargs={'uid': token.uid})
-        return render(request, 'auth/registration.html', {'url': request.build_absolute_uri(url) }) 
+        return render(request, 'auth/registration.html', {'url': request.build_absolute_uri(url)})
 
 
 def confirm(request, uid: str):
@@ -25,5 +21,11 @@ def confirm(request, uid: str):
 def test(request):
     return HttpResponse(request.user.is_authenticated)
 
+
 def user_page(request):
     return render(request, 'auth/user.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')

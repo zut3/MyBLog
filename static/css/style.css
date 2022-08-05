@@ -332,6 +332,11 @@ html {
   font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container {
   max-width: 1120px;
   margin: 0 auto;
@@ -439,6 +444,7 @@ html {
   font-size: 24px;
 }
 .author__subscribe {
+  cursor: pointer;
   font-weight: 500;
   border: none;
   background-color: #9EE800;
@@ -612,4 +618,40 @@ html {
 .form__submit-btn:hover {
   transition: opacity 250ms linear 0s;
   opacity: 0.8;
+}
+
+.user__header {
+  box-sizing: content-box;
+  margin: 0 0 40px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user__img-container {
+  max-width: 200px;
+  max-height: 200px;
+}
+.user__img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.user__title {
+  font-weight: 500;
+  font-size: 32px;
+}
+.user__logout {
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #C53434;
+  font-weight: 500;
+  padding: 14px 45px;
+  text-decoration: none;
+  color: #272727;
+}
+.user__logout:hover {
+  transition: opacity 0.3s linear 0s;
+  opacity: 0.9;
 }

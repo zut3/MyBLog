@@ -3,5 +3,16 @@
 {% block title %}User{% endblock %}
 
 {% block main %}
-
+<div class="container">
+    <div class="user">
+        <div class="user__header">
+            <div class="user__img-container">
+                <img alt="" src="../../static/img/author.jpg">
+            </div>
+            <h1 class="user__title">Welcome!</h1>
+        </div>
+        <p>Your email: <strong>{{user.email}}</strong></p>
+        <a class="user__logout" href="{% url 'logout' %}">logout</a>
+    </div>
+</div>
 {% endblock %}

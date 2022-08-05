@@ -16,6 +16,7 @@
                 </a>
 		<form class="modal__form form" method="post" 
 			action={% url 'register' %}>
+                    {% csrf_token %}
                     <input type="email" name="email" placeholder="Email" class="input form__email">
                     <p class="form__label">Your should confirm your email.</p>
                     <button type="submit" class="form__submit-btn">Send conirmation mail</button>
