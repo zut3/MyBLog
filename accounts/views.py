@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from .models import Token
+from services.mailing import send_mail
 
 
 def register(request):
@@ -9,6 +10,7 @@ def register(request):
         email = request.POST['email']
         token = Token.objects.get_or_create(email=email)[0]
         url = reverse('confirm', kwargs={'uid': token.uid})
+        send_mail('Confirm your email', request.build_absolute_uri(url), [email])
         return render(request, 'auth/registration.html', {'url': request.build_absolute_uri(url)})
 
 
