@@ -4,7 +4,6 @@ from django.http import HttpResponse
 
 
 def index(request):
-    print(request.user.is_authenticated)
     return render(request, 'index.html')
 
 
