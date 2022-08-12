@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from services.mailing import send_mail
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
 
@@ -7,6 +7,10 @@ def index(request):
     return render(request, 'index.html')
 
 
-def send_email(request):
-    send_mail('lallala', 'lalallala', ['z.gl3b@yandex.ru'])
-    return HttpResponse('ok!')
+@login_required
+def subscribe(request):
+    """подписывает пользователя к блогу. Обязательна регистрация."""
+    user = request.user
+    user.subscribed = True
+    user.save()
+    return HttpResponse('now you subscribed to blog!')

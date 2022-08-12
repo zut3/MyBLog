@@ -8,7 +8,7 @@ User = get_user_model()
 
 @app.task
 def send_notification_mail_about_new_article():
-    "Celery task. Присылает письмо о новой статье всем подписавшися пользователям. Not implemented!"
+    """Celery task. Присылает письмо о новой статье всем подписавшися пользователям. Not implemented!"""
     users_email = [user.email for user in User.objects.all()]
     not_notified_articles = BlogItem.objects.exclude(notified=False)
     print(not_notified_articles)
