@@ -81,6 +81,7 @@ DATABASES = {
     }
 }
 
+LOGIN_URL = '/#modal'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -99,6 +100,17 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Redis
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = '6379'
+BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+
+# Celery
+
+CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 
 
 # Internationalization

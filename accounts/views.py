@@ -11,7 +11,7 @@ def register(request):
         token = Token.objects.get_or_create(email=email)[0]
         url = reverse('confirm', kwargs={'uid': token.uid})
         send_mail('Confirm your email', request.build_absolute_uri(url), [email])
-        return render(request, 'auth/registration.html', {'url': request.build_absolute_uri(url)})
+        return render(request, 'auth/registration.html')
 
 
 def confirm(request, uid: str):

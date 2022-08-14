@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('mail', views.send_email)
+    path('subscribe', views.subscribe, name='subscribe')
 ]

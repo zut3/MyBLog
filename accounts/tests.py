@@ -17,4 +17,3 @@ class AuthTests(LiveServerTestCase):
         subject, body, to, *other = send_mail_mock.call_args[0]
         self.assertIn(email, to)
 
-
