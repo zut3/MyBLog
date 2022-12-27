@@ -1,1 +1,1 @@
-baseurl: ./frontend/
+source: [./frontend/]
