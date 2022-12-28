@@ -5,6 +5,7 @@ const browser = require('browser-sync').create()
 function style() {
     return gulp.src('./src/*.scss')
         .pipe(sass())
+        .pipe(gulp.dest('./public'))
         .pipe(gulp.dest('../static/css'))
         .pipe(browser.stream())
 }
